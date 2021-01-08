@@ -4,7 +4,7 @@ class NeuralNetwork {
   
     //Naming convention w{layer number}_{from neuron number}_{to neuron number}
     // layer 1, 2 hidden neurons: w0_11=w[0], w0_21=w[1], w0_31=w[2] 
-    //                            w0_12=w[3], w0_22=w[4], w0_32=w[5]
+      //                          w0_12=w[3], w0_22=w[4], w0_32=w[5]
     // layer 2, 1 output neuron : w1_11=w[6], w1_21=w[7] 
   
   //All biases
@@ -15,10 +15,10 @@ class NeuralNetwork {
   
   NeuralNetwork(float varians){
     for(int i=0; i < weights.length -1; i++){
-    // weights[i] = random(-varians,varians);
+    weights[i] = random(-varians,varians);
     }
     for(int i=0; i < biases.length -1; i++){
-    // biases[i] = random(-varians,varians);
+    biases[i] = random(-varians,varians);
     }    
   }
 
