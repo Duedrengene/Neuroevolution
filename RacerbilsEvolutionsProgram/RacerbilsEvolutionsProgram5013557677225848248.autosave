@@ -19,19 +19,17 @@ void draw() {
   image(trackImage,0,80);  
 
   carSystem.updateAndDisplay();
- // println(populationSize);
-   // println("Michael-is-a-big-oldstinker");
+  println(populationSize);
+    //println("Michael-is-a-big-oldstinker");
   //TESTKODE: Frastortering af dårlige biler, for hver gang der går 200 frame - f.eks. dem der kører uden for banen
-  if (frameCount%200==0) {
-      //println("FJERN DEM DER KØRER UDENFOR BANEN frameCount: " + frameCount);
+  /* if (frameCount%200==0) {
+      println("FJERN DEM DER KØRER UDENFOR BANEN frameCount: " + frameCount);
       for (int i = carSystem.CarControllerList.size()-1 ; i >= 0;  i--) {
         SensorSystem s = carSystem.CarControllerList.get(i).sensorSystem;
         if(s.whiteSensorFrameCount > 0){
           carSystem.CarControllerList.remove(carSystem.CarControllerList.get(i));
-                CarController controller = new CarController();
-       carSystem.CarControllerList.add(controller);
          }
       }
-    }
+    }*/
     //
 }
