@@ -1,5 +1,5 @@
 //populationSize: Hvor mange "controllere" der genereres, controller = bil & hjerne & sensorer
-int       populationSize  = 1000;     
+int       populationSize  = 300;     
 int count = 0;
 boolean check = false;
 float[] primeWeight;
@@ -37,20 +37,29 @@ carSystem.CarControllerList.get(i).reset();
       }
     }
               if(check){
-                for (int i = carSystem.CarControllerList.size()-1 ; i >= populationSize/2;  i--){
+                for (int i = carSystem.CarControllerList.size()-1 ; i >= 0;  i--){
                 if(carSystem.CarControllerList.get(i).sensorSystem.clockWiseRotationFrameCounter< 100){
+                  
                 carSystem.CarControllerList.get(i).reset();
-    carSystem.CarControllerList.get(i).hjerne.weights= primeWeight;
+                for(int i2 =0;i2<8;i2++)
+    carSystem.CarControllerList.get(i).hjerne.weights[i2]= primeWeight[i2];
+ println("Mathias Lugter");    
                 }}
+                primeWeight = null;
     check = false;
    }
    
     
     if (frameCount%300==0) {
       for (int i = carSystem.CarControllerList.size()-1 ; i >= 0;  i--) {
-        if(carSystem.CarControllerList.get(i).sensorSystem.lastTimeInFrames == 0)
-         if(carSystem.CarControllerList.get(i).sensorSystem.clockWiseRotationFrameCounter< 100)
+         if(carSystem.CarControllerList.get(i).sensorSystem.clockWiseRotationFrameCounter< 100){
     carSystem.CarControllerList.get(i).change();
+         }
     }}
     //
+
+
+}
+void mousePressed(){
+println("Mathias Lugter"); //<>//
 }

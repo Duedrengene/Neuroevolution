@@ -41,7 +41,9 @@ class CarController {
   change();
   }
   void change(){
-  hjerne.weights[(int)random(0,8)] += random(-1,1);
+  println(hjerne.weights);
+    hjerne.weights[(int)random(0,8)] += random(-1,1);
+  println(hjerne.weights);  
   }
   
   

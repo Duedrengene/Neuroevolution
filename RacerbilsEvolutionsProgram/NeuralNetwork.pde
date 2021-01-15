@@ -8,7 +8,7 @@ class NeuralNetwork {
     // layer 2, 1 output neuron : w1_11=w[6], w1_21=w[7] 
   
   //All biases
-  float[] biases = {0,0,0};//new float[3];
+  float[] biases = {1,1,1};//new float[3];
     //Naming convention b{layer number}_{neuron number}
     // layer 1, 2 hidden neurons: b2_1=b[0], b2_2=b[1]
     // layer 2, 1 output neuron : b3_1=b[2]
