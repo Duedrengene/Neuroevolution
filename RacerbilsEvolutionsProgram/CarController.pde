@@ -23,5 +23,26 @@ class CarController {
   void display(){
     bil.displayCar();
     sensorSystem.displaySensors();
+    if(sensorSystem.checker ==true){
+      println(hjerne.weights);
+    primeWeight= hjerne.weights;
+      check = true;
+      count ++;
+    //  println(sensorSystem.clockWiseRotationFrameCounter);
+    sensorSystem.checker = false;
+    }
   }
+  
+    void reset(){
+  bil.pos.set(60, 232);
+  bil.vel.set(0,5);
+  sensorSystem.reset();
+  //println(sensorSystem.whiteSensorFrameCount);
+  change();
+  }
+  void change(){
+  hjerne.weights[(int)random(0,8)] += random(-1,1);
+  }
+  
+  
 }

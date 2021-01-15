@@ -18,7 +18,9 @@ class NeuralNetwork {
     weights[i] = random(-varians,varians);
     }
     for(int i=0; i < biases.length -1; i++){
-    biases[i] = random(-varians,varians);
+   // biases[i] = random(-varians,varians);
+       biases[i] = 1;
+
     }    
   }
 

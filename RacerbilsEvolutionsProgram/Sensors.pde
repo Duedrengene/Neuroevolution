@@ -2,6 +2,7 @@ class SensorSystem {
   //SensorSystem - alle bilens sensorer - ogå dem der ikke bruges af "hjernen"
   
   //wall detectors
+  boolean checker = false;
   float sensorMag = 50;
   float sensorAngle = PI*2/8;
   
@@ -73,6 +74,9 @@ class SensorSystem {
     if (lastGreenDetection && !currentGreenDetection) {  //sidst grønt - nu ikke -vi har passeret målstregen 
       lapTimeInFrames = frameCount - lastTimeInFrames; //LAPTIME BEREGNES - frames nu - frames sidst
       lastTimeInFrames = frameCount;
+      if(clockWiseRotationFrameCounter> 150)
+      checker = true;
+      
     }   
     lastGreenDetection = currentGreenDetection; //Husker om der var grønt sidst
     //count clockWiseRotationFrameCounter
@@ -85,6 +89,35 @@ class SensorSystem {
     updateSensorVectors(vel);
     
     anchorPos.set(pos.x,pos.y);
+  }
+
+  void reset(){
+    
+   sensorMag = 50;
+   sensorAngle = PI*2/8;
+  
+  anchorPos.set(0,0);
+  
+  sensorVectorFront.set(0,sensorMag);
+  sensorVectorLeft.set(0, sensorMag);
+  sensorVectorRight.set(0, sensorMag);
+
+  frontSensorSignal   = false;
+  leftSensorSignal    = false;
+  rightSensorSignal   = false;
+    
+    
+    whiteSensorFrameCount    = 0; //udenfor banen
+
+  //clockwise rotation detection
+  centerToCarVector.set(0,0);
+     lastRotationAngle   = -1;
+     clockWiseRotationFrameCounter  = 0;
+
+  //lapTime calculation
+   lastGreenDetection=false;
+       lastTimeInFrames      = 0;
+       lapTimeInFrames       = 10000;
   }
 
   void updateSensorVectors(PVector vel) {
